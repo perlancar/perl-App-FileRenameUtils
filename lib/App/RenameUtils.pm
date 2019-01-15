@@ -8,7 +8,7 @@ package App::RenameUtils;
 
 =head1 DESCRIPTION
 
-This distributions provides the following command-line utilities:
+This distribution provides the following command-line utilities:
 
 # INSERT_EXECS_LIST
 
