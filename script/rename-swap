@@ -33,6 +33,7 @@ for (my $i=0; $i < int(@ARGV/2); $i++) {
     print "Swapping $f1 <-> $f2\n";
 }
 
+# PODNAME: rename-swap
 # ABSTRACT: Swap filenames
 
 =head1 SYNOPSIS
