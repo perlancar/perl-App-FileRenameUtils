@@ -19,4 +19,6 @@ L<rename> from L<File::Rename>
 
 L<perlmv> from L<App::perlmv>
 
+L<renwd> from L<App::renwd>
+
 =cut
