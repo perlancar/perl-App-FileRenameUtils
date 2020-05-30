@@ -16,7 +16,8 @@ sub add_filename_suffix {
     no warnings 'uninitialized';
 
     my ($filename, $suffix) = @_;
-    $filename =~ s/(.+)(\.\w+)?\z/$1 . $suffix . $2/e;
+    $filename =~ s/(.+?)(\.\w+)?\z/$1 . $suffix . $2/e;
+    $filename;
 }
 
 sub find_unique_filename {
@@ -25,7 +26,8 @@ sub find_unique_filename {
     my $orig_filename = $filename;
     my $i = 0;
     while (-e $filename) {
-        $filename = add_filename_suffix($orig_filename, ++$i);
+        $i++;
+        $filename = add_filename_suffix($orig_filename, " ($i)");
     }
     $filename;
 }
