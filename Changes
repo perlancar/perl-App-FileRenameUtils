@@ -1,3 +1,8 @@
+0.005   2020-08-21  Released-By: PERLANCAR; Urgency: medium
+
+	- [ux] Add mv-reverse as alias to rename-to-from.
+
+
 0.004   2020-08-21  Released-By: PERLANCAR; Urgency: medium
 
 	- Add script: rename-to-from.
