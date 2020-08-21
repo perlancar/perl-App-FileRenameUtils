@@ -1,0 +1,46 @@
+#!perl
+
+use strict;
+use warnings;
+use Log::ger;
+use Log::ger::Screen;
+
+unless (@ARGV == 2) {
+    die "Usage: rename-to-from <new-filename> <current-filename>\n";
+}
+
+die "rename-to-from: File '$ARGV[1]' doesn't exist\n" unless -e $ARGV[1];
+die "rename-to-from: File '$ARGV[1]' already exist\n" if     -e $ARGV[0]; # for safety
+
+{
+    # try rename first
+    rename $ARGV[1], $ARGV[0] and last;
+    log_debug "[rename-to-from] rename() failed: $!, will try using File::Copy's move()";
+
+    require File::Copy;
+    File::Copy::move($ARGV[1], $ARGV[0]) and last;
+    last unless $!;
+    log_error "[rename-to-from] Failed renaming $ARGV[1] -> $ARGV[0]: $!";
+    exit 1;
+}
+
+# ABSTRACT: Rename a file, with reversed order of arguments
+# PODNAME:
+
+=head1 SYNOPSIS
+
+ % rename-to-from <new-filename> <current-filename>
+
+
+=head1 DESCRIPTION
+
+This utility is handy if you happen to just rename a file that has a long name:
+
+ % mv some-rather-long-file-name.txt some-other-name
+
+and made a mistake and want to reverse the previous operation:
+
+ % rename-to-from some-rather-long-file-name.txt some-other-name
+
+On the command-line, you just press Ctrl-A (or some other equivalent shortcut to
+move to the start of line) and replace C<mv> with C<rename-to-from>.
