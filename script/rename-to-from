@@ -30,6 +30,7 @@ die "rename-to-from: File '$ARGV[1]' already exist\n" if     -e $ARGV[0]; # for 
 =head1 SYNOPSIS
 
  % rename-to-from <new-filename> <current-filename>
+ % mv-reverse     <new-filename> <current-filename>
 
 
 =head1 DESCRIPTION
@@ -42,5 +43,10 @@ and made a mistake and want to reverse the previous operation:
 
  % rename-to-from some-rather-long-file-name.txt some-other-name
 
+or:
+
+ % mv-reverse     some-rather-long-file-name.txt some-other-name
+
 On the command-line, you just press Ctrl-A (or some other equivalent shortcut to
-move to the start of line) and replace C<mv> with C<rename-to-from>.
+move to the start of line) and replace C<mv> with C<rename-to-from> (or
+C<mv-reverse>).
