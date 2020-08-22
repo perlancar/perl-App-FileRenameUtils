@@ -22,6 +22,21 @@ system "perlmv", "add-prefix", "-a", "avoid_duplicate_prefix=1", "-a", "prefix=$
 
  % rename-add-prefix <prefix> <file>...
 
+Given these files:
+
+ foo
+ bar.txt
+ new-baz.mp4
+
+this command:
+
+ % rename-add-prefix new- *
+
+will rename them as follow:
+
+ foo -> new-foo
+ bar.txt -> new-bar.txt
+
 
 =head1 DESCRIPTION
 
