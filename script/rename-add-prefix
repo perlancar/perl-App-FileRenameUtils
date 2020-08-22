@@ -1,0 +1,35 @@
+#!perl
+
+use strict;
+use warnings;
+use Log::ger;
+use Log::ger::Screen;
+
+#use File::Which;
+
+unless (@ARGV >= 2) {
+    die "Usage: rename-add-prefix <prefix> <FILE>...\n";
+}
+#die "rename-add-prefix: Can't find perlmv in PATH\n" unless which("perlmv");
+
+my $prefix = shift @ARGV;
+system "perlmv", "add-prefix", "-a", "avoid_duplicate_prefix=1", "-a", "prefix=$prefix", @ARGV;
+
+# ABSTRACT: Add prefix to filenames
+# PODNAME:
+
+=head1 SYNOPSIS
+
+ % rename-add-prefix <prefix> <file>...
+
+
+=head1 DESCRIPTION
+
+This is a shortcut for:
+
+ % perlmv add-prefix -a avoid_duplicate_prefix=1 -a prefix=<prefix> <file>...
+
+
+=head1 SEE ALSO
+
+L<App::perlmv> and its L<App::perlmv::scriptlet::add_prefix> scriptlet.
