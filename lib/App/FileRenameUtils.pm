@@ -74,4 +74,7 @@ L<perlmv> from L<App::perlmv>
 
 L<renwd> from L<App::renwd>
 
+Other similar distributions: L<App::FileModifyUtils>,
+L<App::FileRemoveUtilities>.
+
 =cut
