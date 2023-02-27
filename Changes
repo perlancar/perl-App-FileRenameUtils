@@ -1,3 +1,8 @@
+0.007   2023-02-27  Released-By: PERLANCAR; Urgency: medium
+
+        - Add script: rename-add-prefix-datestamp.
+
+
 0.006   2020-08-22  Released-By: PERLANCAR; Urgency: medium
 
 	- Add script: rename-add-prefix.

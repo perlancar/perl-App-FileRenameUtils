@@ -1,6 +1,10 @@
 package App::FileMoveUtils;
 
+use strict;
+
+# AUTHORITY
 # DATE
+# DIST
 # VERSION
 
 1;

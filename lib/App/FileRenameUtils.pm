@@ -1,15 +1,16 @@
 package App::FileRenameUtils;
 
-# AUTHORITY
-# DATE
-# DIST
-# VERSION
-
 use 5.010001;
 use strict;
 use warnings;
 
 use Exporter 'import';
+
+# AUTHORITY
+# DATE
+# DIST
+# VERSION
+
 our @EXPORT_OK = qw(add_filename_suffix find_unique_filename);
 
 sub add_filename_suffix {
