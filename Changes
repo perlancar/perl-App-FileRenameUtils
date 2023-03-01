@@ -1,6 +1,16 @@
-0.007   2023-02-27  Released-By: PERLANCAR; Urgency: medium
+0.007.2 2023-02-27  Released-By: PERLANCAR; Urgency: medium
 
         - Add script: rename-add-prefix-datestamp.
+
+        - UPDATE 2023-03-01: rename release from 0.007 to 0.007.2 due to
+          conflict.
+
+
+0.007   2021-08-02  Released-By: PERLANCAR; Urgency: low
+
+	- No functional changes.
+
+	- [doc] Mention some related modules.
 
 
 0.006   2020-08-22  Released-By: PERLANCAR; Urgency: medium
