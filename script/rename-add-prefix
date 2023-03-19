@@ -37,6 +37,8 @@ will rename them as follow:
  foo -> new-foo
  bar.txt -> new-bar.txt
 
+F<new-baz.mp4> is not renamed because it already has the C<new-> prefix.
+
 
 =head1 DESCRIPTION
 
