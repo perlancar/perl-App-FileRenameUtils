@@ -37,7 +37,8 @@ date):
  foo -> 20230110-foo
  bar.txt -> 20221223-bar.txt
 
-You can use L<perlmv>'s options, e.g. C<-d> (dry-run), etc.
+Because this script is a wrapper for L<perlmv>, You can use C<perlmv>'s options,
+e.g. C<-d> (dry-run), etc.
 
 
 =head1 DESCRIPTION
