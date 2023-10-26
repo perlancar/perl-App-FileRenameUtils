@@ -71,7 +71,9 @@ C<$filename> already does not exist, it will be returned as-is.
 
 L<rename> from L<File::Rename>
 
-L<perlmv> from L<App::perlmv>
+L<perlmv> from L<App::perlmv>, and its various scriptlets under
+C<App::perlmv::scriptlet::*>, e.g. L<App::perlmv::scriptlet::add_prefix> or
+L<App::perlmv::scriptlet::according_to_containing_dir>.
 
 L<renwd> from L<App::renwd>
 
