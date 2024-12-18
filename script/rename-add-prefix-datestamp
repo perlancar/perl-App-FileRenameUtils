@@ -52,3 +52,7 @@ This is a shortcut for:
 
 L<App::perlmv> and its L<App::perlmv::scriptlet::add_prefix_datestamp>
 scriptlet.
+
+L<timestamp-file-according-to-name> (from L<App::TimestampUtils>) is the
+counterpart of us. It changes the file modification time according to
+date/timestamp pattern detected on the filename.
