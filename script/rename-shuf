@@ -37,29 +37,12 @@ for my $i (0 .. $#ARGV) {
     print "Swapping $f1 <-> $f2\n";
 }
 
-# PODNAME: rename-swap
-# ABSTRACT: Swap filenames
+# PODNAME: rename-shuf
+# ABSTRACT: Shuffle filenames
 
 =head1 SYNOPSIS
 
-Swapping two files:
-
- % rename-swap f1 f2
-
-f1 will be renamed to f2 while f2 will be renamed to f1.
-
-Swapping three files:
-
- % rename-swap f1 f2 f3
-
-f1 will be renamed to f3, f3 will be renamed to f1, while f2 will be unchanged.
-
-Swapping four files:
-
- % rename-swap f1 f2 f3 f4
-
-f1 will be renamed to f4, f4 will be renamed to f1, f2 will be renamed to f3, f3
-will be renamed to f2.
+ % rename-shuf f1 f2 f3 f4 f5
 
 
 =head1 DESCRIPTION

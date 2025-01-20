@@ -1,3 +1,14 @@
+0.013   2025-01-20  Released-By: PERLANCAR; Urgency: medium
+
+        - Add script: rename-shuf.
+
+        - [doc] Mention timestamp-file-according-to-name &
+          App::TimestampUtils.
+
+        - [ux] Add shorter alias for rename-add-prefix-datestamp:
+          datestamp.
+
+
 0.012   2023-11-15  Released-By: PERLANCAR; Urgency: medium
 
         - Add utility: mv-files-to-dirs.
