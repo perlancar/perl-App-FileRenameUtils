@@ -1,0 +1,50 @@
+#!perl
+
+use strict;
+use warnings;
+use Log::ger;
+use Log::ger::Screen;
+
+#use File::Which;
+
+unless (@ARGV >= 1) {
+    die "Usage: rename-add-suffix-imgsize <FILE>...\n";
+}
+#die "rename-add-suffix-imgsize: Can't find perlmv in PATH\n" unless which("perlmv");
+
+system "perlmv", "add-suffix-imgsize", @ARGV;
+
+# ABSTRACT: Add suffix of image size to image files
+# PODNAME:
+
+=head1 SYNOPSIS
+
+ % rename-add-suffix-imgsize <file>...
+
+Given this file:
+
+ foo.jpg
+ bar.100x100.png
+
+this command:
+
+ % rename-add-suffix-imgsize *
+
+will rename them as follow:
+
+ foo.jpg -> foo.220x80.jpg
+
+F<bar.100x100.png> is not renamed because it already has the image size suffix
+(you'll need to specify C<< -a replace=1 >> to replace the existing suffix).
+
+
+=head1 DESCRIPTION
+
+This is a shortcut for:
+
+ % perlmv add-suffix-imgsize <file>...
+
+
+=head1 SEE ALSO
+
+L<App::perlmv> and its L<App::perlmv::scriptlet::add_suffix_imgsize> scriptlet.
