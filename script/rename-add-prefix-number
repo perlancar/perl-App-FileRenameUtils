@@ -14,6 +14,8 @@ unless (@ARGV >= 1) {
 
 my @args;
 if (defined $ENV{DIGITS}) { push @args, "-a", "digits=".int($ENV{DIGITS}) }
+if (defined $ENV{START}) { push @args, "-a", "start=".($ENV{START}+0) }
+if (defined $ENV{INC}) { push @args, "-a", "inc=".($ENV{INC}+0) }
 push @args, @ARGV;
 system "perlmv", "prefix-with-number", @args;
 
@@ -47,7 +49,7 @@ You can use L<perlmv>'s options, e.g. C<-d> (dry-run), etc.
 
 =head1 DESCRIPTION
 
-This is a shortcut for:
+This is a shortcut/wrapper for:
 
  % perlmv prefix-with-number <file>...
 
@@ -58,6 +60,20 @@ This is a shortcut for:
 
 Posint. Will be passed as the C<digits> argument to the
 L<prefix-with-number|App::perlmv::scriptlet::prefix_with_number> scriptlet.
+Default is to use the necessary number of digits that fits the largest number
+used.
+
+=head2 START
+
+Float. Will be passed as the C<start> argument to the
+L<prefix-with-number|App::perlmv::scriptlet::prefix_with_number> scriptlet.
+Default is 1.
+
+=head2 INC
+
+Float. Will be passed as the C<inc> argument to the
+L<prefix-with-number|App::perlmv::scriptlet::prefix_with_number> scriptlet.
+Default is 1.
 
 
 =head1 SEE ALSO
