@@ -1,0 +1,74 @@
+#!perl
+
+use strict;
+use warnings;
+use Log::ger;
+use Log::ger::Screen;
+
+use IPC::System::Options 'system', -log=>1;
+
+opendir my $dh, "." or die "Can't opendir '.': $!";
+my @files = grep { $_ ne '.' && $_ ne '..' } readdir($dh);
+if ($0 =~ /from-oldest/) {
+    @files = sort { (-M $b) <=> (-M $a) } @files;
+} else {
+    @files = sort { (-M $a) <=> (-M $b) } @files;
+}
+
+my @opts;
+push @opts, "-T"; # tell perlmv not to sort the files
+if ($ENV{DRY_RUN} // 1) {
+    push @opts, "-d";
+}
+
+# this does not work yet and should be a bug on perlmv's part
+#system "rename-add-prefix-number", @opts, @ARGV, "--", @files; # perlmv SCRIPTLET -- * <-- doesn't work
+system "rename-add-prefix-number", @opts, @ARGV, @files;
+
+# ABSTRACT: Add serial number (1, 2, ...) to all filenames in the current directory starting from the oldest
+# PODNAME:
+
+=head1 SYNOPSIS
+
+ % rename-all-files-here-from-oldest-add-prefix-number [options] ...
+
+Given these files:
+
+ foo
+ bar.txt
+
+this command:
+
+ % rename-all-files-here-from-oldest-add-prefix-number
+
+will rename them as follow:
+
+ foo -> 1-foo
+ bar.txt -> 2-bar.txt
+
+You can use L<perlmv>'s options, e.g. C<-d> (dry-run), etc.
+
+B<IMPORTANT>: Since this command is potentially dangerous, the default is to run
+in dry-run mode (L</perlmv>'s C<-d> option). To actually rename files, use
+C<DRY_RUN=0> environment variable.
+
+
+=head1 DESCRIPTION
+
+This is a shortcut/wrapper for:
+
+ % rename-add-prefix-number <file> ...
+
+which in turn is itself a shortcut/wrapper for:
+
+ % perlmv prefix-with-number <file>...
+
+
+=head1 ENVIRONMENT
+
+=head2 DRY_RUN
+
+
+=head1 SEE ALSO
+
+L<rename-add-prefix-number>
