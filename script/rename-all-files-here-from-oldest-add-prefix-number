@@ -25,12 +25,13 @@ if ($ENV{DRY_RUN} // 1) {
 #system "rename-add-prefix-number", @opts, @ARGV, "--", @files; # perlmv SCRIPTLET -- * <-- doesn't work
 system "rename-add-prefix-number", @opts, @ARGV, @files;
 
-# ABSTRACT: Add serial number (1, 2, ...) to all filenames in the current directory starting from the oldest
+# ABSTRACT: Add serial number (1, 2, ...) to all filenames in the current directory starting from the oldest/newest
 # PODNAME:
 
 =head1 SYNOPSIS
 
  % rename-all-files-here-from-oldest-add-prefix-number [options] ...
+ % rename-all-files-here-from-newest-add-prefix-number [options] ...
 
 Given these files:
 
@@ -40,6 +41,7 @@ Given these files:
 this command:
 
  % rename-all-files-here-from-oldest-add-prefix-number
+ % rename-all-files-here-from-newest-add-prefix-number
 
 will rename them as follow:
 
@@ -57,11 +59,11 @@ C<DRY_RUN=0> environment variable.
 
 This is a shortcut/wrapper for:
 
- % rename-add-prefix-number <file> ...
+ % rename-add-prefix-number -T <file> ...
 
 which in turn is itself a shortcut/wrapper for:
 
- % perlmv prefix-with-number <file>...
+ % perlmv prefix-with-number -T <file>...
 
 
 =head1 ENVIRONMENT
