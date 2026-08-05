@@ -23,13 +23,16 @@ if ($ENV{DRY_RUN} // 1) {
 
 # this does not work yet and should be a bug on perlmv's part
 #system "rename-add-prefix-number", @opts, @ARGV, "--", @files; # perlmv SCRIPTLET -- * <-- doesn't work
-system "rename-add-prefix-number", @opts, @ARGV, @files;
+my $script = $0 =~ /prefix/ ? "rename-add-prefix-number" : "rename-with-number";
+system $script, @opts, @ARGV, @files;
 
-# ABSTRACT: Add serial number (1, 2, ...) to all filenames in the current directory starting from the oldest/newest
+# ABSTRACT: Rename all files in the current directory, with serial number (1, 2, ...) or with serial number prefix
 # PODNAME:
 
 =head1 SYNOPSIS
 
+ % rename-all-files-here-from-oldest-with-number [options] ...
+ % rename-all-files-here-from-newest-with-number [options] ...
  % rename-all-files-here-from-oldest-add-prefix-number [options] ...
  % rename-all-files-here-from-newest-add-prefix-number [options] ...
 
@@ -47,6 +50,16 @@ will rename them as follow:
 
  foo -> 1-foo
  bar.txt -> 2-bar.txt
+
+while this command:
+
+ % rename-all-files-here-from-oldest-with-number
+ % rename-all-files-here-from-newest-with-number
+
+will rename them as follow:
+
+ foo -> 1
+ bar.txt -> 2.txt
 
 You can use L<perlmv>'s options, e.g. C<-d> (dry-run), etc.
 
