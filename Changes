@@ -1,3 +1,8 @@
+0.016   2026-08-13  Released-By: PERLANCAR; Urgency: medium
+
+        - [bugfix] Fix script name rename-add-number -> rename-with-number.
+
+
 0.015   2026-08-05  Released-By: PERLANCAR; Urgency: medium
 
         - Add scripts: rename-with-number,
